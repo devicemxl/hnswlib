@@ -164,17 +164,18 @@ class BruteforceSearch : public AlgorithmInterface<dist_t> {
             return;   // nothing to remove
         }
 
-        size_t cur_c = found->second;                // internal index to remove
         dict_external_to_internal.erase(found);
+        size_t cur_c = found->second;                // internal index to remove
 
-        // If this is not the last element, move the last element into its place.
-        if (cur_c != cur_element_count - 1) {
-            labeltype label_last = *((labeltype*)(data_ + size_per_element_ * (cur_element_count-1) + data_size_));
-            dict_external_to_internal[label_last] = cur_c;
-            memcpy(data_ + size_per_element_ * cur_c,
-                   data_ + size_per_element_ * (cur_element_count-1),
-                   data_size_ + sizeof(labeltype));
-        }
+     
+        size_t cur_c = found->second;
+        labeltype label = *((labeltype*)(data_ + size_per_element_ * (cur_element_count-1) + data_size_));
+        dict_external_to_internal[label] = cur_c;
+        memcpy(data_ + size_per_element_ * cur_c,
+                data_ + size_per_element_ * (cur_element_count-1),
+                data_size_+sizeof(labeltype));
+
+
         cur_element_count--;
     }
 
