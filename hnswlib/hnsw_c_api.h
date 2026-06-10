@@ -49,6 +49,20 @@ extern "C" {
 #endif
 
 // ------------------------------------------------------------------
+// Fixed-width integer types for ABI stability across platforms
+// ------------------------------------------------------------------
+
+/**
+ * @brief Type for external labels (identifiers). Always 64-bit.
+ */
+typedef uint64_t hnsw_label;
+
+/**
+ * @brief Type for sizes (number of elements, capacities, etc.). Always 64-bit.
+ */
+typedef uint64_t hnsw_size;
+
+// ------------------------------------------------------------------
 // Opaque handle and type definitions
 // ------------------------------------------------------------------
 
