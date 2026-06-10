@@ -1,7 +1,7 @@
 // ==================================================================
 // hnswlib/space_l2.h
 // ==================================================================
-// Professional documentation for the L2 (Euclidean) space.
+// Documentation for the L2 (Euclidean) space.
 // This file implements squared L2 distance (sum of squared differences)
 // for floating‑point and unsigned byte vectors. It includes scalar,
 // SSE, AVX, and AVX512 implementations with runtime dispatch based
